@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <div class="navbar_container mb-3">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="container main">
+    <div *ngIf="page == 'home'" class="container">
+      <a class="back_link" routerLink="/"
+        ><i class="fa-solid fa-arrow-left pt-4"></i
+        ><span class="ms-2">Back</span></a
+      >
+    </div>
+    <div *ngIf="rowNumber == '0' && page == 'nopage'" class="container">
+      <a class="back_link" routerLink="/allproducts/bracelets/0"
+        ><i class="fa-solid fa-arrow-left pt-4"></i
+        ><span class="ms-2">Back</span></a
+      >
+    </div>
+    <div *ngIf="rowNumber == '1' && page == 'nopage'" class="container">
+      <a class="back_link" routerLink="/allproducts/earrings/1"
+        ><i class="fa-solid fa-arrow-left pt-4"></i
+        ><span class="ms-2">Back</span></a
+      >
+    </div>
+    <div *ngIf="rowNumber == '2' && page == 'nopage'" class="container">
+      <a class="back_link" routerLink="/allproducts/necklace/2"
+        ><i class="fa-solid fa-arrow-left pt-4"></i
+        ><span class="ms-2">Back</span></a
+      >
+    </div>
+    <div *ngIf="rowNumber == '3' && page == 'nopage'; s" class="container">
+      <a class="back_link" routerLink="/allproducts/rings/3"
+        ><i class="fa-solid fa-arrow-left pt-4"></i
+        ><span class="ms-2">Back</span></a
+      >
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <img
+          style="width: 100%"
+          src="{{ singleProduct.product_image }}"
+          alt=""
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="product_details">
+          <div class="product_heading">
+            <h2>{{ singleProduct.product_name }}</h2>
+          </div>
+          <div class="product_offer">
+            <p>Buy 2, Get Extra 5% Off! Use Code:SHAYASPL5</p>
+          </div>
+          <div class="product_price mt-3 mb-3">
+            <p>{{ singleProduct.original_price | currency: "INR" }}</p>
+          </div>
+          <div class="product_addtocart mb-5">
+            <button class="me-4" (click)="addToCart()">ADD TO CARD</button>
+            <button (click)="addToWishList()" style="border: none; background-color: white">
+              <i
+                style="color: rgb(238, 0, 255); font-size: 40px"
+                class="fa-solid fa-heart"
+              ></i>
+            </button>
+          </div>
+          <div class="product_description">
+            <p>{{ singleProduct.text_description }}</p>
+          </div>
+          <div class="product_weight mt-2 mb-2">
+            <p>Weight :{{ singleProduct.weight }}</p>
+          </div>
+          <div class="product_length">
+            <p>Length :{{ singleProduct.length }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

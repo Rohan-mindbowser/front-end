@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <div class="navbar_container mb-5">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 left_Product_details">
+        <div class="total_item_and_price mb-2">
+          <p>
+            Total ({{ totalProduct }}) :
+            <span>{{ totalPrice | currency: "INR" }}</span>
+          </p>
+        </div>
+        <div
+          class="total_products mb-3"
+          *ngFor="let product of allCartProducts; index as i"
+        >
+          <div class="left">
+            <img
+              style="width: 100%; object-fit: cover; height: 100%"
+              src="{{ product.product_image }}"
+              alt=""
+            />
+          </div>
+          <div class="right">
+            <div class="product_name">
+              <p style="margin: 0px">{{ product.product_name }}</p>
+            </div>
+            <div class="product_id">
+              <p>{{ product._id }}</p>
+            </div>
+            <div class="product_quantity mb-3">
+              <p>Quantity : 1</p>
+            </div>
+            <div class="product_price_and_remove">
+              <div class="product_price">
+                <p>{{ product.original_price | currency: "INR" }}</p>
+              </div>
+              <div class="product_remove">
+                <button class="custom-btn">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="p mb-3">Order Summary</div>
+        <div class="order_summary_container">
+          <div class="sub_total mb-3">
+            <div class="subtotal_text">Subtotal</div>
+            <div class="subtotal_price">{{ totalPrice | currency: "INR" }}</div>
+          </div>
+          <div class="coupon_discount mb-3">
+            <div class="coupon_discount_title">Coupon Discount</div>
+            <div class="coupon_discount_apply">Apply Coupon</div>
+          </div>
+          <div class="delivery_charges mb-3">
+            <div class="delivery_charges_title">Delivery Charge (Standard)</div>
+            <div class="delivery_charges_value">FREE</div>
+          </div>
+          <div class="total_charges mb-3">
+            <div class="total_price_title">TOTAL COST</div>
+            <div class="total_price_value">
+              {{ totalPrice | currency: "INR" }}
+            </div>
+          </div>
+          <div class="checkout_securely">
+            <button>
+              <i class="fa-solid fa-lock me-2"></i>Checkout Securely
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
