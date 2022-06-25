@@ -1,1 +1,1 @@
-# Anuglar Ecommerce Assignment
+# Angular Ecommerce Assignment
